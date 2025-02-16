@@ -7,6 +7,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import Icon from '@expo/vector-icons/FontAwesome';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -29,15 +30,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Legal',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Gerar Senhas',
+          tabBarIcon: ({ color }) => <Icon size={28} name="home" color={color} />,
+          tabBarLabelStyle:{
+            fontSize: 15
+          },
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="myPasswords"
         options={{
-          title: 'Avião',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Minhas Senhas',
+          tabBarIcon: ({ color, focused }) => focused ? <Icon size={28} name="unlock" color={color} /> : <Icon size={28} name="lock" color={color} />,
+          tabBarLabelStyle:{
+            fontSize: 15
+          },
         }}
       />
     </Tabs>
