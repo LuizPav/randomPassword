@@ -43,7 +43,7 @@ export default function HomeScreen() {
             Senha de no máximo 20 caracteres.
           </Text>
           <Text style={styles.texto2}>
-            {size} Caracteres
+            {size.toFixed(0)} Caracteres
           </Text>
         </View>
           <View style={styles.sliderArea}>
@@ -53,9 +53,7 @@ export default function HomeScreen() {
               thumbTintColor='#F8F8FF'
               minimumValue={6}
               maximumValue={20}
-              value={size}
-              step={1}  
-              onSlidingComplete={(value) => setSize(value)}
+              onValueChange={(value) => setSize(value)}
               />
           </View>
         <View>
